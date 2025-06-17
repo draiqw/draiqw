@@ -66,7 +66,6 @@ Bachelor’s student at the Faculty of Computational Mathematics and Cybernetics
 ## Contact
 
 - 📍 Moscow  
-- ✉️ akramovroman30@gmail.com  
-- 📱 +7 (993) 293-0134  
-- Telegram: [t.me/akramovroman30](https://t.me/akramovroman30)
+- ✉️ akramovromanr@gmail.com  
+- Telegram: [t.me/draiqws](https://t.me/draiqws)
 
