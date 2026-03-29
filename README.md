@@ -4,24 +4,6 @@ Bachelor’s student at the Faculty of Computational Mathematics and Cybernetics
 
 ---
 
-## Table of Contents
-
-- [About Me](#about-me)  
-- [Experience](#experience)  
-- [Education](#education)  
-- [Skills](#skills)  
-- [Contact](#contact)
-
----
-
-## About Me
-
----
-
-## Experience
-
----
-
 ## Education
 
 - **Lomonosov Moscow State University**  
@@ -38,4 +20,3 @@ Bachelor’s student at the Faculty of Computational Mathematics and Cybernetics
 - 📍 Moscow  
 - ✉️ akramovromanr@gmail.com  
 - Telegram: [t.me/draiqws](https://t.me/draiqws)
-
