@@ -1,100 +1,81 @@
 # Roman Akramov
 
-**AI / ML Engineer · Full-Stack Developer · R&D Researcher**
+**AI/ML Engineer · Full-Stack Developer · R&D @ MSU Machine Learning Lab**
 
-I work across the whole path a model takes to production: research and post-training on one end,
-FastAPI/React services with CI/CD on the other, and rigorous evaluation tying the two together.
-Focus areas: LLM pipelines, RAG, OCR-driven document automation, RL post-training.
+I build LLM systems end to end — post-training and evaluation research on one side, production
+FastAPI/React services on the other.
 
-Author of an open-source LLM evaluation library and a published paper.
+## Research
 
----
+MSU, Machine Learning Laboratory — R&D Engineer, 2025 — present.
 
-## What I do
+**CRISP / SPICE** — corpus-grounded challenger–reasoner self-play for domain-specific post-training.
+Full pipeline: OCR over 766 PDFs → 6.4k-chunk corpus → dual-LoRA self-play → multi-judge curation →
+downstream GRPO → 21 benchmarks (EN + RU). 8×A100, SLURM, FSDP, vLLM. Paper plus three released
+Russian STEM datasets.
 
-**R&D research** — reinforcement learning and post-training of LLMs (GRPO-style methods, SFT, dLM),
-retriever and reranker design, ablation-driven evaluation. First author of the TMBBO preprint, with
-two more papers in preparation on self-play RL and RAG.
+**evaluation-benchkit** — lead developer of the lab's open-source LLM evaluation library: 22
+benchmarks across 7 categories (GSM8K, MATH-500, ToolQA, HarmBench), a unified backend layer for
+vLLM and HF, and a leaderboard UI for comparing prompt, model and pipeline configurations.
 
-**AI engineering** — turning research into systems that run: distributed training on multi-GPU
-clusters, inference with vLLM, hybrid retrieval, agent tool-calling and MCP, reproducible pipelines
-tracked in W&B, MLflow and TensorBoard.
+**RAPTOR retrieval** — LLaDA-8B fine-tuned (SFT) as a logit-based reranker over a RAPTOR tree.
+Across 37 ablations against a cosine baseline: QuALITY 68.7 → 72.6 acc, NarrativeQA 6.0 → 24.9 F1,
+QASPER 11.0 → 28.7 F1.
 
-**Full-stack development** — FastAPI backends, React frontends, WebSocket streaming of LLM
-responses, Docker and CI/CD, multi-platform delivery from web to Telegram bots to desktop clients.
+**Multilingual deep research** — cross-lingual evaluation for deep-research agents: an XBCP scheme
+on top of BrowseComp-Plus that translates the document corpus while keeping questions and answers in
+English, so answer quality and retriever quality can be measured per language region.
 
----
+**SAPO** — gate functions for SAPO: custom trainer, cluster training runs and benchmark evaluation
+of the resulting checkpoints.
 
-## Selected work
+**TMBBO** — first author, preprint. Two more papers in preparation on self-play RL and RAG.
 
-### MSU, Machine Learning Laboratory — R&D Engineer · 2025 — present
+## Production
 
-**Evaluation-benchkit** — lead developer of an open-source LLM evaluation library: 22 benchmarks
-across 7 categories (GSM8K, MATH-500, ToolQA, HarmBench and others) behind a unified backend layer
-for vLLM and HF. Added a UI and leaderboard for tracking runs and comparing prompt, model and
-pipeline configurations, which cut the cycle time for testing a hypothesis.
+**DCFP** — automation of a food-production plant, backend and frontend. Batches and batch units,
+tech cards with versions and norms, incoming control, inventory and stock, orders and invoices,
+disposals, tasting lists, workshops, closing checklists, plans and tasks — plus Excel reporting,
+an analytics module and lab quality control. FastAPI, PostgreSQL, Alembic, React, Cypress e2e,
+CI/CD and nightly database backups.
 
-**RAG research** — investigated retrievers on top of a RAPTOR tree and fine-tuned LLaDA-8B (SFT)
-as a logit-based reranker. Across 37 ablations against a cosine baseline: QuALITY 68.7 → 72.6 acc,
-NarrativeQA 6.0 → 24.9 F1, QASPER 11.0 → 28.7 F1.
+**Waive** — startup, ML + full-stack. Selected products:
 
-**SPICE** — designed a self-play training framework for LLMs on PyTorch and vLLM (RLVR, DrGRPO).
-Distributed training on 8×A100 (SLURM, FSDP FULL_SHARD, NCCL/NVLink), LoRA hot-swap between
-training and rollout instances, per-rank checkpoint and resume for a dual-optimizer setup. Built an
-OCR pipeline that extracts content from PDF textbooks and generates pretrain / SFT / RL data with
-iterative dataset accumulation in the self-play loop — up to +3 p.p. on GSM8K and MATH-500.
+- **AIVA** — RAG and agent platform: FastAPI, React, Qdrant, Elasticsearch; agent runtime behind an
+  MCP server with 12 tools, container-per-run isolation, Bitrix integration, code runner, WebSocket
+  streaming of LLM responses.
+- **Aiva-router** — LLM routing layer: model registry in the database with pricing and encrypted
+  provider keys, per-model enable gate, per-run cost accounting.
+- **AUDS / BimChat** — LLM-driven validation of engineering documentation: IFC project files matched
+  against a graph of GOST regulations in Neo4j, entities and attributes checked through LLM
+  tool-calling / MCP, compliance reports generated automatically.
+- **Chebotarev** — interior design service: render generation and editing over Stable Diffusion,
+  FLUX, GPT and Gemini, with prompt templates, an LLM quality assessor and upscaling; React Flow
+  frontend, FastAPI backend, MinIO storage.
+- **Nexus** — SaaS knowledge base with RAG: ingestion (PDF/DOCX/PPTX/XLSX, OCR, Whisper, web
+  extraction), hybrid retrieval (BM25 + dense), synthesis with citations; web, Telegram and a Tauri
+  desktop client.
+- **Nielsen** — document search and deep-research assistant on Yandex AI Studio: FastAPI + Celery
+  monorepo, agent runs with skills executed in disposable sandboxes.
 
-### Waive — Full-Stack Developer (ML + Web) · 2024 — 2026
+## Personal projects
 
-**Nexus** — SaaS personal knowledge base with RAG. Built the full ingestion pipeline
-(PDF/DOCX/PPTX/XLSX parsing, OCR for scans and images, Whisper transcription, web extraction) and
-hybrid retrieval combining Elasticsearch BM25 with vector embeddings, plus LLM synthesis with
-citations. Shipped to web, Telegram and a Tauri desktop client.
-
-**AUDS / BimChat** — LLM-driven document validation. A pipeline that reads engineering project
-files (IFC), matches them against a graph of GOST regulations in Neo4j, validates entities and
-attributes through LLM tool-calling / MCP, and auto-generates compliance reports. Designed the
-FastAPI backend, React frontend, CI/CD and WebSocket streaming of LLM responses.
-
-**NDS** — improved report-generation throughput 2.5× via pagination, implemented RAG document
-search on Elasticsearch, ran code reviews and decomposed tasks for two developers.
-
-**Aurora** — trained a diffusion model for floor-plan generation and built an interior design
-module that applies edits from text prompts via an LLM.
-
----
-
-## Education
-
-**Lomonosov Moscow State University** — Faculty of CMC, Department of MMP · BSc 2023 — 2027
-GPA 4.5/5.0, major-track courses 5.0/5.0.
-
-Deep learning, NLP, CV, optimization and classical ML. Implemented a fully connected network in
-NumPy from scratch, U-Net / LinkNet for segmentation, a CNN for image classification, RNN / LSTM
-for classification and LM generation, Transformers for NER with HPO via Optuna. On the optimization
-side: Lasso, subgradient method, ISTA / FISTA, proximal operators in JAX, the EM algorithm for word
-alignment, spectral clustering, OpenCV.
-
----
+- **drevugol** — production and order management for a charcoal factory (family business): FastAPI,
+  PostgreSQL, MinIO, aiogram bot, React, GHCR-based CI/CD.
+- **courseplex** — LMS platform (courses, lessons, lesson-linked tests, reviews): React 19, FastAPI,
+  ARQ, MinIO; running in production.
+- **career-ops** — AI job-search system built on Claude Code: 14 skill modes, Go dashboard, PDF
+  generation, batch processing.
+- Smaller products, all shipped and deployed: **elagin** (lead management), **slt_service**,
+  **calma**, **brainstorm**, **akramfit**, **aero-hockey**.
 
 ## Stack
 
-**Languages** — Python, C++, C, SQL, TS/JS. English B2.
-
-**LLMs and RAG** — prompt engineering, hybrid RAG (BM25 + dense), retrievers and rerankers,
-OCR-based ingestion, evaluation and A/B testing, agent tool-calling / MCP.
-Commercial providers (Anthropic, OpenAI) and open-source models (Llama, Mistral, LLaDA, Qwen).
-
-**ML/DL** — PyTorch, Transformers, HF, vLLM, FSDP, TRL, PEFT/LoRA, scikit-learn.
-
-**Infra and search** — SLURM, Docker, Linux, Nginx, CI/CD; PostgreSQL, Elasticsearch, Neo4j, Redis,
-S3, Celery; MLflow, W&B, TensorBoard.
-
-**Web** — FastAPI, React, WebSocket streaming.
-
----
+- Python, C++, TS · PyTorch, Transformers, vLLM, FSDP, TRL, PEFT/LoRA
+- FastAPI, React, WebSocket streaming · PostgreSQL, Elasticsearch, Neo4j, Qdrant, Redis, MinIO
+- SLURM, Docker, CI/CD · MLflow, W&B
 
 ## Contact
 
-📍 Moscow · ✉️ [akramovromanr@gmail.com](mailto:akramovromanr@gmail.com) ·
-✈️ [t.me/draiqws](https://t.me/draiqws)
+MSU, Faculty of CMC, Dept. of MMP — BSc 2023–2027 · Moscow ·
+[akramovromanr@gmail.com](mailto:akramovromanr@gmail.com) · [t.me/draiqws](https://t.me/draiqws)
